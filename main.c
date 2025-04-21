@@ -6,38 +6,55 @@
 /*   By: rohta <rohta@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 17:43:07 by rohta             #+#    #+#             */
-/*   Updated: 2025/04/12 17:56:28 by rohta            ###   ########.fr       */
+/*   Updated: 2025/04/21 23:19:37 by rohta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	ft_mandelbrot(void)
+void	draw_fractol(t_fractol *f)
 {
-	t_fractol	frct;
-	
-}
+	int		x;
+	int		y;
+	int		iter;	
+	int		color;
+	t_comp	c;
 
-void	ft_error_tex(int a)
-{
-	if (a == 0)
+	y = 0;
+	while (y < HEIGHT)
 	{
-		printf("MandelbrotかJuliaと入力してください\n");
+		x = 0;
+		while (x < WIDTH)
+		{
+			c = pixel_complex(x, y, f->view);
+			iter = loop_calculate(c, *f);
+			color = get_color(iter, f->max_iter);
+			put_pixel(f->img, x, y, color);
+			x++;
+		}
+		y++;
 	}
+	mlx_put_image_to_window(f->mlx, f->win, f->img.img_ptr, 0, 0);
 }
 
 int	main(int argc, char **argv)
 {
+	t_fractol	f;
+
 	if (argc < 2)
-	{
-		return (0);
-		errror_print();
-	}
+		return (error_print(1), 1);
+	init_graphics(&f);
 	if (!strcmp(argv[1], "Mandelbrot"))
-		ft_mandelbrot();
+		init_mandelbrot(&f);
 	else if (!strcmp(argv[1], "Julia"))
-		ft_julia();
+	{
+		if (julia_arg_check(argc, argv, &f) == 1)
+			return (1);
+	}
 	else
-		ft_error_tex(0);
+		return (error_print(2), 1);
+	draw_fractol(&f);
+	do_event(&f);
+	mlx_loop(f.mlx);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: rohta <rohta@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 18:53:24 by rohta             #+#    #+#             */
-/*   Updated: 2025/04/12 17:48:49 by rohta            ###   ########.fr       */
+/*   Updated: 2025/04/21 23:34:46 by rohta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,14 @@
 # include <string.h>
 # include <unistd.h>
 
+# define MANDELBROT "MANDELBROT"
+# define JULIA "JULIA"
+# define WIDTH 800
+# define HEIGHT 800
+# define ESC 65307
+# define SCROLL_UP 5
+# define SCROLL_DOWN 4
+
 typedef struct s_complex
 {
 	double	re;
@@ -35,13 +43,14 @@ typedef struct s_view
 	double	max_re;
 	double	min_im;
 	double	max_im;
+	double	zoom;
 }	t_view;
 
 typedef struct s_image
 {
 	void	*img_ptr;
 	char	*data;
-	int		ppp; //bit per pixel
+	int		bpp; //bit per pixel
 	int		size_line;
 	int		endian;
 }	t_image;
@@ -55,11 +64,35 @@ typedef struct s_fractol
 	int		height;
 	int		mouse;
 	int		color;
-	t_image	image;
+	int		max_iter;
+	t_image	img;
 	t_view	view;
 	t_comp	julia_c;
 }	t_fractol;
 
+int		main(int argc, char **argv);
+void	draw_fractol(t_fractol *f);
 
-# endif
+void	init_graphics(t_fractol *f);
+void	init_mandelbrat(t_fractol *f);
+void	init_julia(t_fractol *f, char **argv);
 
+int		julia_arg_check(int argc, char **argv, t_fractol *f);
+
+t_comp	pixel_complex(int x, int y, t_view view);
+int		loop_calculate(t_comp c, t_fractol f);
+int		get_color(int iter, int max_iter);
+void	put_pixel(t_image img, int x, int y, int color);
+
+int		mandelbrot_loop(t_comp c, t_fractol f);
+int		julia_loop(t_comp z, t_fractol f);
+
+void	do_event(t_fractol *f);
+int		key_hook(int keycode, t_fractol *f);
+int		mouse_hook(int mousecode, int x, int y, t_fractol *f);
+void	redraw_fractol(t_fractol *f);
+
+double	ft_atof(char *str);
+void	error_print(int n);
+
+#endif
