@@ -6,7 +6,7 @@
 #    By: rohta <rohta@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/28 14:00:50 by rohta             #+#    #+#              #
-#    Updated: 2025/04/28 14:34:11 by rohta            ###   ########.fr        #
+#    Updated: 2025/04/28 15:45:01 by rohta            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,14 +14,14 @@ NAME = fractol
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-MLXFLAGS = -lmlx -lXext -lX11 -lm
+MLX_DIR = -I ./minilibx-linux
+MLXFLAGS = -L $(MLX_DIR) -lmlx -lXext -lX11 -lm
 SRC = main.c initialize.c hook_event.c ft_atof.c error_log.c\
       draw_image.c calculate.c arg_check.c
 OBJ = $(SRC:.c=.o)
 LIBFT_DIR = ./libft
 LIBFT_OBJ = $(LIBFT_DIR)/ft_*.o
-
-INC = -I ./libft
+INC = -I ./libft $(MLX_DIR)
 LIB = -L $(LIBFT_DIR) -lft
 
 all: $(NAME)

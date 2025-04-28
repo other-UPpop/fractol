@@ -6,7 +6,7 @@
 /*   By: rohta <rohta@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 19:28:52 by rohta             #+#    #+#             */
-/*   Updated: 2025/04/21 22:47:21 by rohta            ###   ########.fr       */
+/*   Updated: 2025/04/28 15:28:54 by rohta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ int	loop_calculate(t_comp c, t_fractol f)
 {
 	t_comp	z;
 
-	if (f.type == MANDELBROT)
+	if (ft_strncmp(f.type, MANDELBROT, 10) == 0)
 		return (mandelbrot_loop(c, f));
-	else if (f.type == JULIA)
+	else if (ft_strncmp(f.type, JULIA, 6) == 0)
 	{
 		z = c;
 		return (julia_loop(z, f));
