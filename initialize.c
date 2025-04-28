@@ -6,7 +6,7 @@
 /*   By: rohta <rohta@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 18:21:42 by rohta             #+#    #+#             */
-/*   Updated: 2025/04/21 22:35:40 by rohta            ###   ########.fr       */
+/*   Updated: 2025/04/28 14:45:08 by rohta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	init_graphics(t_fractol *f)
 			&f->img.size_line, &f->img.endian);
 }
 
-void	init_mandelbrat(t_fractol *f)
+void	init_mandelbrot(t_fractol *f)
 {
 	f->type = "MANDELBRAT";
 	f->view.min_re = -2.5;

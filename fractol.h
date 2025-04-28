@@ -6,7 +6,7 @@
 /*   By: rohta <rohta@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 18:53:24 by rohta             #+#    #+#             */
-/*   Updated: 2025/04/21 23:34:46 by rohta            ###   ########.fr       */
+/*   Updated: 2025/04/28 14:45:21 by rohta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FRACTOL_H
 
 # include "libft/libft.h"
+# include "minilibx-linux/mlx.h"
 # include <limits.h>
 # include <stdarg.h>
 # include <stddef.h>
@@ -74,7 +75,7 @@ int		main(int argc, char **argv);
 void	draw_fractol(t_fractol *f);
 
 void	init_graphics(t_fractol *f);
-void	init_mandelbrat(t_fractol *f);
+void	init_mandelbrot(t_fractol *f);
 void	init_julia(t_fractol *f, char **argv);
 
 int		julia_arg_check(int argc, char **argv, t_fractol *f);
