@@ -6,7 +6,7 @@
 /*   By: rohta <rohta@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 19:28:52 by rohta             #+#    #+#             */
-/*   Updated: 2025/04/28 15:28:54 by rohta            ###   ########.fr       */
+/*   Updated: 2025/05/04 18:17:09 by rohta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,17 @@ t_comp	pixel_complex(int x, int y, t_view view)
 	t_comp	c;
 	double	x_re;
 	double	y_im;
+	double	center_re;
+	double	center_im;
 
-	x_re = (view.max_re - view.min_re) / view.zoom;
-	y_im = (view.max_im - view.min_im) / view.zoom;
-	c.re = view.min_re + ((double)x / WIDTH * x_re);
-	c.im = view.max_im - ((double)y / HEIGHT * y_im);
+	center_re = (view.min_re + view.max_re) / 2.0;
+	center_im = (view.min_im + view.max_im) / 2.0;
+	x_re = (view.max_re - view.min_re) * view.zoom;
+	y_im = (view.max_im - view.min_im) * view.zoom;
+	//c.re = view.min_re + ((double)x / WIDTH * x_re);
+	//c.im = view.max_im - ((double)y / HEIGHT * y_im);
+	c.re = center_re + (x - WIDTH / 2) / (WIDTH / x_re);
+	c.im = center_im - (y - HEIGHT / 2) / (HEIGHT / y_im);
 	return ((t_comp)c);
 }
 
