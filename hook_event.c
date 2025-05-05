@@ -6,37 +6,51 @@
 /*   By: rohta <rohta@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 00:50:29 by rohta             #+#    #+#             */
-/*   Updated: 2025/05/05 17:54:38 by rohta            ###   ########.fr       */
+/*   Updated: 2025/05/05 19:17:08 by rohta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	redraw_fractol(t_fractol *f)
+static void	update_view_zoom(t_fractol *f, int x, int y, double factor)
 {
-//	if (f->img.img_ptr)
-//		mlx_destroy_image(f->mlx, f->img.img_ptr);
-//	f->img.img_ptr = mlx_new_image(f->mlx, WIDTH, HEIGHT);
-//	f->img.data = mlx_get_data_addr(f->img.img_ptr,
-//		&f->img.bpp, &f->img.size_line, &f->img.endian);
-	draw_fractol(f);
-	mlx_put_image_to_window(f->mlx, f->win, f->img.img_ptr, 0, 0);
+	double	mouse_re;
+	double	mouse_im;
+    double	new_width;
+    double	new_height;
+
+	mouse_re = f->view.min_re + (double)x / WIDTH * (f->view.max_re - f->view.min_re);
+	mouse_im = f->view.max_im - (double)y / HEIGHT * (f->view.max_im - f->view.min_im);
+	new_width = (f->view.max_re - f->view.min_re) * factor;
+	new_height = (f->view.max_im - f->view.min_im) * factor;
+	f->view.min_re = mouse_re - new_width / 2;
+	f->view.max_re = mouse_re + new_width / 2;
+	f->view.min_im = mouse_im - new_height / 2;
+	f->view.max_im = mouse_im + new_height / 2;
+	f->need_draw = true;
 }
 
-int	mouse_hook(int mousecode, int x, int y, void *param)
+void	redraw_fractol(t_fractol *f)
+{
+	if (f->need_draw == true)
+	{
+		draw_fractol(f);
+		mlx_put_image_to_window(f->mlx, f->win, f->img.img_ptr, 0, 0);
+		f->need_draw = false;
+	}
+}
+
+int	mouse_hook(int code, int x, int y, void *param)
 {
 	t_fractol	*f;
 
 	(void)x;
 	(void)y;
 	f = (t_fractol *)param;
-	if (f->view.zoom <= 0.0)
-		f->view.zoom = 1.0;
-
-	if (mousecode == SCROLL_UP)
-		f->view.zoom *= 1.1;
-	else if (mousecode == SCROLL_DOWN)
-		f->view.zoom *= 0.9;
+	if (code == SCROLL_UP)
+		update_view_zoom(f, x, y, 0.9);
+	else if (code == SCROLL_DOWN)
+		update_view_zoom(f, x, y, 1.1);
 	redraw_fractol(f);
 	return (0);
 }

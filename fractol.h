@@ -6,7 +6,7 @@
 /*   By: rohta <rohta@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 18:53:24 by rohta             #+#    #+#             */
-/*   Updated: 2025/05/05 16:59:49 by rohta            ###   ########.fr       */
+/*   Updated: 2025/05/05 19:15:34 by rohta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ typedef struct s_fractol
 	void	*mlx;
 	void	*win;
 	char	*type;
+	bool	need_draw;
 	int		width;
 	int		height;
 	int		mouse;
