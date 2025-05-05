@@ -6,7 +6,7 @@
 /*   By: rohta <rohta@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 18:53:24 by rohta             #+#    #+#             */
-/*   Updated: 2025/05/05 16:35:15 by rohta            ###   ########.fr       */
+/*   Updated: 2025/05/05 16:59:49 by rohta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 
 # define MANDELBROT "MANDELBROT"
 # define JULIA "JULIA"
-# define WIDTH 400
-# define HEIGHT 400
+# define WIDTH 800
+# define HEIGHT 800
 # define ESC 65307
 # define SCROLL_UP 5
 # define SCROLL_DOWN 4
@@ -51,7 +51,7 @@ typedef struct s_image
 {
 	void	*img_ptr;
 	char	*data;
-	int		bpp; //bit per pixel
+	int		bpp; 
 	int		size_line;
 	int		endian;
 }	t_image;

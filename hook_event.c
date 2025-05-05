@@ -6,7 +6,7 @@
 /*   By: rohta <rohta@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 00:50:29 by rohta             #+#    #+#             */
-/*   Updated: 2025/05/04 18:42:02 by rohta            ###   ########.fr       */
+/*   Updated: 2025/05/05 17:00:18 by rohta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	redraw_fractol(t_fractol *f)
 {
-	mlx_clear_window(f->mlx, f->win);
+//	mlx_clear_window(f->mlx, f->win);
 //	if (f->img.img_ptr != NULL)
 //	{
 //		//mlx_destroy_image(f->mlx, f->img.img_ptr);
