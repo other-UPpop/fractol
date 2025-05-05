@@ -6,7 +6,7 @@
 /*   By: rohta <rohta@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 00:50:29 by rohta             #+#    #+#             */
-/*   Updated: 2025/05/05 19:28:18 by rohta            ###   ########.fr       */
+/*   Updated: 2025/05/05 19:32:04 by rohta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ static void	update_view_zoom(t_fractol *f, int x, int y, double factor)
 	double	new_width;
 	double	new_height;
 
+	(void)x;
+	(void)y;
 	center_re = (f->view.min_re + f->view.max_re) / 2.0;
 	center_im = (f->view.min_im + f->view.max_im) / 2.0;
 	new_width = (f->view.max_re - f->view.min_re) * factor;
