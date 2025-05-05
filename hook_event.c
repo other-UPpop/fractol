@@ -6,7 +6,7 @@
 /*   By: rohta <rohta@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 00:50:29 by rohta             #+#    #+#             */
-/*   Updated: 2025/05/05 17:13:13 by rohta            ###   ########.fr       */
+/*   Updated: 2025/05/05 17:22:37 by rohta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	redraw_fractol(t_fractol *f)
 //	f->img.data = mlx_get_data_addr(f->img.img_ptr, &f->img.bpp,
 //			&f->img.size_line, &f->img.endian);
 	draw_fractol(f);
+	mlx_put_image_to_window(f->mlx, f->win, f->img.img_ptr, 0, 0);
 }
 
 int	mouse_hook(int mousecode, int x, int y, void *param)
@@ -37,9 +38,9 @@ int	mouse_hook(int mousecode, int x, int y, void *param)
 		f->view.zoom = 1.0;
 
 	if (mousecode == SCROLL_UP)
-		f->view.zoom *= 1.025;
+		f->view.zoom *= 1.1;
 	else if (mousecode == SCROLL_DOWN)
-		f->view.zoom *= 0.975;
+		f->view.zoom *= 0.9;
 	redraw_fractol(f);
 	return (0);
 }
