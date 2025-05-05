@@ -6,7 +6,7 @@
 /*   By: rohta <rohta@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 00:50:29 by rohta             #+#    #+#             */
-/*   Updated: 2025/05/05 17:40:38 by rohta            ###   ########.fr       */
+/*   Updated: 2025/05/05 17:54:38 by rohta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	redraw_fractol(t_fractol *f)
 {
-	if (f->img.img_ptr)
-		mlx_destroy_image(f->mlx, f->img.img_ptr);
-	f->img.img_ptr = mlx_new_image(f->mlx, WIDTH, HEIGHT);
-	f->img.data = mlx_get_data_addr(f->img.img_ptr,
-		&f->img.bpp, &f->img.size_line, &f->img.endian);
+//	if (f->img.img_ptr)
+//		mlx_destroy_image(f->mlx, f->img.img_ptr);
+//	f->img.img_ptr = mlx_new_image(f->mlx, WIDTH, HEIGHT);
+//	f->img.data = mlx_get_data_addr(f->img.img_ptr,
+//		&f->img.bpp, &f->img.size_line, &f->img.endian);
 	draw_fractol(f);
 	mlx_put_image_to_window(f->mlx, f->win, f->img.img_ptr, 0, 0);
 }
