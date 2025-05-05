@@ -6,7 +6,7 @@
 /*   By: rohta <rohta@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 00:50:29 by rohta             #+#    #+#             */
-/*   Updated: 2025/05/05 19:17:08 by rohta            ###   ########.fr       */
+/*   Updated: 2025/05/05 19:28:18 by rohta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 static void	update_view_zoom(t_fractol *f, int x, int y, double factor)
 {
-	double	mouse_re;
-	double	mouse_im;
-    double	new_width;
-    double	new_height;
+	double	center_re;
+	double	center_im;
+	double	new_width;
+	double	new_height;
 
-	mouse_re = f->view.min_re + (double)x / WIDTH * (f->view.max_re - f->view.min_re);
-	mouse_im = f->view.max_im - (double)y / HEIGHT * (f->view.max_im - f->view.min_im);
+	center_re = (f->view.min_re + f->view.max_re) / 2.0;
+	center_im = (f->view.min_im + f->view.max_im) / 2.0;
 	new_width = (f->view.max_re - f->view.min_re) * factor;
 	new_height = (f->view.max_im - f->view.min_im) * factor;
-	f->view.min_re = mouse_re - new_width / 2;
-	f->view.max_re = mouse_re + new_width / 2;
-	f->view.min_im = mouse_im - new_height / 2;
-	f->view.max_im = mouse_im + new_height / 2;
+	f->view.min_re = center_re - new_width / 2;
+	f->view.max_re = center_re + new_width / 2;
+	f->view.min_im = center_im - new_height / 2;
+	f->view.max_im = center_im + new_height / 2;
 	f->need_draw = true;
 }
 
