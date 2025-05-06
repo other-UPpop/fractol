@@ -6,7 +6,7 @@
 /*   By: rohta <rohta@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 19:28:52 by rohta             #+#    #+#             */
-/*   Updated: 2025/05/05 19:30:53 by rohta            ###   ########.fr       */
+/*   Updated: 2025/05/06 13:17:59 by rohta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ int	get_color(int iter, int max_iter)
 
 	if (iter == max_iter)
 		return (0x000000);
-	r = (iter * 5) % 256;
-	g = (iter * 15) % 256;
-	b = (iter * 25) % 256;
+	r = (iter * 2) % 256;
+	g = (iter * 5) % 256;
+	b = (iter * 8) % 256;
 	return (r << 16 | g << 8 | b);
 }
 

@@ -6,7 +6,7 @@
 /*   By: rohta <rohta@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 18:53:24 by rohta             #+#    #+#             */
-/*   Updated: 2025/05/05 19:15:34 by rohta            ###   ########.fr       */
+/*   Updated: 2025/05/06 13:21:11 by rohta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 
 # define MANDELBROT "MANDELBROT"
 # define JULIA "JULIA"
-# define WIDTH 800
-# define HEIGHT 800
+# define WIDTH 400
+# define HEIGHT 400
 # define ESC 65307
 # define SCROLL_UP 5
 # define SCROLL_DOWN 4
