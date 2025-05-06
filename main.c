@@ -6,7 +6,7 @@
 /*   By: rohta <rohta@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 17:43:07 by rohta             #+#    #+#             */
-/*   Updated: 2025/05/06 13:43:46 by rohta            ###   ########.fr       */
+/*   Updated: 2025/05/06 14:07:36 by rohta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ void	draw_fractol(t_fractol *f)
 			iter = loop_calculate(c, *f);
 			color = get_color(iter, f->max_iter);
 			put_pixel(f->img, x, y, color);
-			x++;
+			x += step_x;
 		}
-		y++;
+		y += step_y;
 	}
 	mlx_put_image_to_window(f->mlx, f->win, f->img.img_ptr, 0, 0);
 }
