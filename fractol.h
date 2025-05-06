@@ -6,7 +6,7 @@
 /*   By: rohta <rohta@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 18:53:24 by rohta             #+#    #+#             */
-/*   Updated: 2025/05/06 13:21:11 by rohta            ###   ########.fr       */
+/*   Updated: 2025/05/06 13:42:27 by rohta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef struct s_view
 	double	min_im;
 	double	max_im;
 	double	zoom;
+	double	resolution_scale;
 }	t_view;
 
 typedef struct s_image

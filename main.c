@@ -6,7 +6,7 @@
 /*   By: rohta <rohta@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 17:43:07 by rohta             #+#    #+#             */
-/*   Updated: 2025/05/05 17:35:26 by rohta            ###   ########.fr       */
+/*   Updated: 2025/05/06 13:43:46 by rohta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,15 @@ void	draw_fractol(t_fractol *f)
 	int		iter;	
 	int		color;
 	t_comp	c;
+	int		step_x;
+	int		step_y;
 
+	step_x = (int)(1.0 / f->view.resolution_scale);
+	step_y = (int)(1.0 / f->view.resolution_scale);
+	if (step_x < 1)
+		step_x = 1;
+	if (step_y < 1)
+		step_y = 1;
 	y = 0;
 	while (y < HEIGHT)
 	{
