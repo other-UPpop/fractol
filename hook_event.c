@@ -6,7 +6,7 @@
 /*   By: rohta <rohta@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 00:50:29 by rohta             #+#    #+#             */
-/*   Updated: 2025/05/06 14:14:15 by rohta            ###   ########.fr       */
+/*   Updated: 2025/05/06 14:35:30 by rohta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,27 +60,26 @@ int	mouse_hook(int code, int x, int y, void *param)
 	return (0);
 }
 
-
-int	key_hook(int keycode, t_fractol *f)
-{
-	if (keycode == ESC)
-	{
-		mlx_destroy_image(f->mlx, f->img.img_ptr);
-		mlx_destroy_window(f->mlx, f->win);
-		if (f->mlx)
-			free(f->mlx);
-	}
-	return (0);
-}
-
 int	close_window(t_fractol *f)
 {
 	if (f->img.img_ptr)
 		mlx_destroy_image(f->mlx, f->img.img_ptr);
 	if (f->win)
 		mlx_destroy_window(f->mlx, f->win);
-	if (f->mlx)
-		free(f->mlx);
+	mlx_destroy_display(f->mlx);
+	free(f);
+	exit (0);
+	return (0);
+}
+
+
+int	key_hook(int keycode, t_fractol *f)
+{
+	if (keycode == ESC)
+	{
+		close_window(f);
+		exit(0);
+	}
 	return (0);
 }
 
