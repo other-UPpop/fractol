@@ -6,7 +6,7 @@
 #    By: rohta <rohta@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/28 14:00:50 by rohta             #+#    #+#              #
-#    Updated: 2025/05/04 15:39:50 by rohta            ###   ########.fr        #
+#    Updated: 2025/05/06 17:09:18 by rohta            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,19 +27,22 @@ OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 INCLUDES = -I $(LIBFT_DIR) -I $(MLX_DIR)
 LIBS = -L $(LIBFT_DIR) -lft -L $(MLX_DIR) -lmlx -lXext -lX11 -lm
 
+LIBFT_LIB = $(LIBFT_DIR)/libft.a
+MLX_LIB = $(MLX_DIR)/libmlx.a
+
 all: $(NAME)
 
-$(NAME): libft_ready mlx_ready $(OBJ)
+$(NAME): $(OBJ) $(LIBFT_LIB) $(MLX_LIB)
 	$(CC) $(CFLAGS) $(OBJ) $(LIBS) -o $(NAME)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-	
-libft_ready:
-	$(MAKE) -C $(LIBFT_DIR)
 
-mlx_ready:
-	$(MAKE) -C $(MLX_DIR)
+$(LIBFT_LIB):
+	$(MAKE) -C $(LIBFT_DIR) all
+
+$(MLX_LIB):
+	$(MAKE) -C $(MLX_DIR) all
 
 clean:
 	$(MAKE) -C $(LIBFT_DIR) clean

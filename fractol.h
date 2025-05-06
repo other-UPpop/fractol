@@ -6,7 +6,7 @@
 /*   By: rohta <rohta@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 18:53:24 by rohta             #+#    #+#             */
-/*   Updated: 2025/05/06 15:56:07 by rohta            ###   ########.fr       */
+/*   Updated: 2025/05/06 16:54:07 by rohta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,10 @@ int		mandelbrot_loop(t_comp c, t_fractol f);
 int		julia_loop(t_comp z, t_fractol f);
 
 void	do_event(t_fractol *f);
+int		key_hook(int keycode, t_fractol *f);
+int		close_window(t_fractol *f);
+int		mouse_hook(int code, int x, int y, void *param);
+
 void	redraw_fractol(t_fractol *f);
 
 double	ft_atof(char *str);

@@ -6,13 +6,13 @@
 /*   By: rohta <rohta@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 00:50:29 by rohta             #+#    #+#             */
-/*   Updated: 2025/05/06 16:43:53 by rohta            ###   ########.fr       */
+/*   Updated: 2025/05/06 16:53:55 by rohta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static void	update_view_zoom(t_fractol *f, double factor)
+static void	update_view_xoom(t_fractol *f, double factor)
 {
 	double	center_re;
 	double	center_im;
@@ -77,11 +77,4 @@ int	key_hook(int keycode, t_fractol *f)
 	if (keycode == ESC)
 		close_window(f);
 	return (0);
-}
-
-void	do_event(t_fractol *f)
-{
-	mlx_mouse_hook(f->win, mouse_hook, f);
-	mlx_key_hook(f->win, &key_hook, f);
-	mlx_hook(f->win, 17, 0, &close_window, f);
 }
