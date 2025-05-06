@@ -6,7 +6,7 @@
 /*   By: rohta <rohta@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 00:50:29 by rohta             #+#    #+#             */
-/*   Updated: 2025/05/06 13:55:22 by rohta            ###   ########.fr       */
+/*   Updated: 2025/05/06 14:10:01 by rohta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	mouse_hook(int code, int x, int y, void *param)
 		update_view_zoom(f, 1.1);
 	if (code == SCROLL_UP)
 	{
-		f->view.resolution_scale = 0.25;
+		f->view.resolution_scale = 0.5;
 		redraw_fractol(f);
 	}
 	else
