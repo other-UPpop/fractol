@@ -6,7 +6,7 @@
 /*   By: rohta <rohta@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 18:21:42 by rohta             #+#    #+#             */
-/*   Updated: 2025/05/06 15:22:00 by rohta            ###   ########.fr       */
+/*   Updated: 2025/05/06 15:55:52 by rohta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ void	init_graphics(t_fractol *f)
 void	init_fractol(t_fractol *f)
 {
 	init_graphics(f);
+	f->height = HEIGHT;
+	f->width = WIDTH;
 	ft_memset(f->img.data, 0, f->height * f->img.size_line);
+	f->view.resolution_scale = 1.0;
 	f->max_iter = 150;
 	f->view.zoom = 1.0;
 }
@@ -46,7 +49,7 @@ void	init_julia(t_fractol *f, char **argv)
 	f->julia_c.re = ft_atof(argv[2]);
 	f->julia_c.im = ft_atof(argv[3]);
 	f->view.min_re = -2.0;
-	f->view.max_re = 2.0;	
+	f->view.max_re = 2.0;
 	f->view.min_im = -2.0;
 	f->view.max_im = 2.0;
 }

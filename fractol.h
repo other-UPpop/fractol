@@ -6,7 +6,7 @@
 /*   By: rohta <rohta@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 18:53:24 by rohta             #+#    #+#             */
-/*   Updated: 2025/05/06 15:27:32 by rohta            ###   ########.fr       */
+/*   Updated: 2025/05/06 15:56:07 by rohta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ typedef struct s_image
 {
 	void	*img_ptr;
 	char	*data;
-	int		bpp; 
+	int		bpp;
 	int		size_line;
 	int		endian;
 }	t_image;
