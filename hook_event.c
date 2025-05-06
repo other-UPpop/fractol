@@ -6,7 +6,7 @@
 /*   By: rohta <rohta@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 00:50:29 by rohta             #+#    #+#             */
-/*   Updated: 2025/05/06 14:35:30 by rohta            ###   ########.fr       */
+/*   Updated: 2025/05/06 14:43:21 by rohta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ int	close_window(t_fractol *f)
 	if (f->win)
 		mlx_destroy_window(f->mlx, f->win);
 	mlx_destroy_display(f->mlx);
-	free(f);
 	exit (0);
 	return (0);
 }
