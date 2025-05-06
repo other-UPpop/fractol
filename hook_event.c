@@ -6,7 +6,7 @@
 /*   By: rohta <rohta@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 00:50:29 by rohta             #+#    #+#             */
-/*   Updated: 2025/05/06 13:16:18 by rohta            ###   ########.fr       */
+/*   Updated: 2025/05/06 13:29:52 by rohta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	redraw_fractol(t_fractol *f)
 {
 	if (f->need_draw == true)
 	{
+		f->max_iter = 150;
 		draw_fractol(f);
 		mlx_put_image_to_window(f->mlx, f->win, f->img.img_ptr, 0, 0);
 	}
