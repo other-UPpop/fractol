@@ -6,7 +6,7 @@
 /*   By: rohta <rohta@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 18:21:42 by rohta             #+#    #+#             */
-/*   Updated: 2025/05/06 14:50:17 by rohta            ###   ########.fr       */
+/*   Updated: 2025/05/06 15:22:00 by rohta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,15 @@ void	init_graphics(t_fractol *f)
 			&f->img.size_line, &f->img.endian);
 }
 
+void	init_fractol(t_fractol *f)
+{
+	init_graphics(f);
+	ft_memset(f->img.data, 0, f->height * f->img.size_line);
+	f->max_iter = 150;
+	f->view.zoom = 1.0;
+}
+
+
 void	init_mandelbrot(t_fractol *f)
 {
 	f->type = "MANDELBROT";
@@ -28,8 +37,7 @@ void	init_mandelbrot(t_fractol *f)
 	f->view.max_re = 1.0;
 	f->view.min_im = -1.5;
 	f->view.max_im = 1.5;
-	f->view.zoom = 1.0;
-	f->max_iter = 150;
+
 }
 
 void	init_julia(t_fractol *f, char **argv)
@@ -38,10 +46,7 @@ void	init_julia(t_fractol *f, char **argv)
 	f->julia_c.re = ft_atof(argv[2]);
 	f->julia_c.im = ft_atof(argv[3]);
 	f->view.min_re = -2.0;
-	f->view.max_re = 2.0;
+	f->view.max_re = 2.0;	
 	f->view.min_im = -2.0;
 	f->view.max_im = 2.0;
-	f->view.zoom = 1.0;
-	f->max_iter = 150;
-	printf("julia_init\n");
 }

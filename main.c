@@ -6,7 +6,7 @@
 /*   By: rohta <rohta@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 17:43:07 by rohta             #+#    #+#             */
-/*   Updated: 2025/05/06 14:55:28 by rohta            ###   ########.fr       */
+/*   Updated: 2025/05/06 15:22:41 by rohta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (error_print(1), 1);
-	init_graphics(&f);
+	init_fractol(&f);
 	if (ft_strncmp(argv[1], "Mandelbrot", 10) == 0)
 		init_mandelbrot(&f);
 	else if (ft_strncmp(argv[1], "Julia", 6) == 0)
