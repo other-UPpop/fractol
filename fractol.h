@@ -6,7 +6,7 @@
 /*   By: rohta <rohta@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 18:53:24 by rohta             #+#    #+#             */
-/*   Updated: 2025/05/06 13:42:27 by rohta            ###   ########.fr       */
+/*   Updated: 2025/05/06 15:27:32 by rohta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ int		main(int argc, char **argv);
 void	draw_fractol(t_fractol *f);
 
 void	init_graphics(t_fractol *f);
+void	init_fractol(t_fractol *f);
 void	init_mandelbrot(t_fractol *f);
 void	init_julia(t_fractol *f, char **argv);
 
