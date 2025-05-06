@@ -6,7 +6,7 @@
 /*   By: rohta <rohta@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 18:21:42 by rohta             #+#    #+#             */
-/*   Updated: 2025/05/05 17:28:15 by rohta            ###   ########.fr       */
+/*   Updated: 2025/05/06 14:50:17 by rohta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,5 @@ void	init_julia(t_fractol *f, char **argv)
 	f->view.max_im = 2.0;
 	f->view.zoom = 1.0;
 	f->max_iter = 150;
+	printf("julia_init\n");
 }

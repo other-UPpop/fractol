@@ -6,7 +6,7 @@
 /*   By: rohta <rohta@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 18:06:08 by rohta             #+#    #+#             */
-/*   Updated: 2025/05/06 14:04:17 by rohta            ###   ########.fr       */
+/*   Updated: 2025/05/06 14:48:16 by rohta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	error_print(int n)
 {
-	if (n == 1)
+	if (n == 3)
 	{
 		ft_printf("引数が足りません。\n");
 	}
@@ -23,7 +23,7 @@ void	error_print(int n)
 		ft_printf("入力値に誤りがあります。\n");
 		ft_printf("正しいフラクタルの図形を入力してください。\n");
 	}
-	if (n == 1 || n == 2)
+	if (n == 1 || n == 2 || n == 3)
 	{
 		ft_printf("MandelbrotまたはJuliaと入力してください。\n");
 		ft_printf("Juliaの場合は2つのパラメーターを入力してください。\n");

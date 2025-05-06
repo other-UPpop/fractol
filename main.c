@@ -6,7 +6,7 @@
 /*   By: rohta <rohta@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 17:43:07 by rohta             #+#    #+#             */
-/*   Updated: 2025/05/06 14:45:31 by rohta            ###   ########.fr       */
+/*   Updated: 2025/05/06 14:55:28 by rohta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	draw_fractol(t_fractol *f)
 	int		y;
 	int		iter;	
 	int		step;
-	int		color;
+	t_comp	c;
 
 	step = (int)(1.0 / f->view.resolution_scale);
 	if (step < 1)
@@ -29,10 +29,9 @@ void	draw_fractol(t_fractol *f)
 		x = 0;
 		while (x < WIDTH)
 		{
-			f->julia_c = pixel_complex(x, y, f->view);
-			iter = loop_calculate(f->julia_c, *f);
-			color = get_color(iter, f->max_iter);
-			put_pixel(f->img, x, y, color);
+			c = pixel_complex(x, y, f->view);
+			iter = loop_calculate(c, *f);
+			put_pixel(f->img, x, y, get_color(iter, f->max_iter));
 			x += step;
 		}
 		y += step;
