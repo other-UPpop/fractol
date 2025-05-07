@@ -6,7 +6,7 @@
 /*   By: rohta <rohta@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 18:21:42 by rohta             #+#    #+#             */
-/*   Updated: 2025/05/06 16:50:24 by rohta            ###   ########.fr       */
+/*   Updated: 2025/05/08 07:53:10 by rohta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	init_mandelbrot(t_fractol *f)
 	f->view.max_re = 1.0;
 	f->view.min_im = -1.5;
 	f->view.max_im = 1.5;
-
 }
 
 void	init_julia(t_fractol *f, char **argv)
