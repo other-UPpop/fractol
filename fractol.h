@@ -6,7 +6,7 @@
 /*   By: rohta <rohta@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 18:53:24 by rohta             #+#    #+#             */
-/*   Updated: 2025/05/06 16:54:07 by rohta            ###   ########.fr       */
+/*   Updated: 2025/05/08 13:43:25 by rohta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	init_fractol(t_fractol *f);
 void	init_mandelbrot(t_fractol *f);
 void	init_julia(t_fractol *f, char **argv);
 
-int		julia_arg_check(int argc, char **argv, t_fractol *f);
+int		arg_check(int ac, char **av);
 
 t_comp	pixel_complex(int x, int y, t_view view);
 int		loop_calculate(t_comp c, t_fractol f);

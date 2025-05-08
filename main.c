@@ -6,7 +6,7 @@
 /*   By: rohta <rohta@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 17:43:07 by rohta             #+#    #+#             */
-/*   Updated: 2025/05/06 16:50:45 by rohta            ###   ########.fr       */
+/*   Updated: 2025/05/08 13:40:03 by rohta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,13 @@ int	main(int argc, char **argv)
 {
 	t_fractol	f;
 
-	if (argc < 2)
-		return (error_print(1), 1);
+	if (arg_check(argc, argv) == 1)
+		return (error_print(2), 1);
 	init_fractol(&f);
-	if (ft_strncmp(argv[1], "Mandelbrot", 10) == 0)
+	if (ft_strncmp(argv[1], "Mandelbrot", 11) == 0)
 		init_mandelbrot(&f);
 	else if (ft_strncmp(argv[1], "Julia", 6) == 0)
-	{
-		if (julia_arg_check(argc, argv, &f) == 1)
-			return (1);
-	}
+		init_julia(&f, argv);
 	else
 		return (error_print(2), 1);
 	draw_fractol(&f);

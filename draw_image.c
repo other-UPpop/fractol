@@ -6,7 +6,7 @@
 /*   By: rohta <rohta@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 19:28:52 by rohta             #+#    #+#             */
-/*   Updated: 2025/05/06 13:59:19 by rohta            ###   ########.fr       */
+/*   Updated: 2025/05/08 13:39:53 by rohta            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_comp	pixel_complex(int x, int y, t_view view)
 	t_comp	c;
 
 	c.re = view.min_re + ((double)x / WIDTH) * (view.max_re - view.min_re);
-	c.im = view.max_im - ((double)y / HEIGHT) * (view.max_im - view.min_im);
+	c.im = view.min_im + ((double)y / HEIGHT) * (view.max_im - view.min_im);
 	return (c);
 }
 
@@ -25,7 +25,7 @@ int	loop_calculate(t_comp c, t_fractol f)
 {
 	t_comp	z;
 
-	if (ft_strncmp(f.type, MANDELBROT, 10) == 0)
+	if (ft_strncmp(f.type, MANDELBROT, 11) == 0)
 		return (mandelbrot_loop(c, f));
 	else if (ft_strncmp(f.type, JULIA, 6) == 0)
 	{
